@@ -3,17 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Servidor Apache | Port 80</title>
-    
+    <title>Las Cangreburgers de Mauri | El sabor secreto</title>
+    <meta name="description" content="Las mejores hamburguesas gourmet del mundo, servidas directamente desde nuestro carrito secreto.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
 </head>
 <body>
-    <div class="background-glow"></div>
-    <main class="hero-card">
-        <span class="badge">Apache Docker Setup</span>
-        <h1>Servidor Listo</h1>
-        <p>Configuración en Docker sobre el puerto 80. Tu servidor web de alta performance está funcionando ahora.</p>
-        <button class="btn">Explorar Contenido</button>
-        
-    </main>
+    <nav>
+        <div class="brand">
+            <img src="logo.png" alt="Logo">
+            Las Cangreburgers
+        </div>
+        <div class="nav-links">
+            <a href="#menu">Menú</a>
+            <a href="#about">Sobre nosotros</a>
+            <a href="#contact">Contacto</a>
+        </div>
+        <button class="cart-icon" onclick="toggleCart()">
+            🛒 <span class="cart-count" id="cartCount">0</span>
+        </button>
+    </nav>
+
+    <header class="hero">
+        <h1 class="hero-h1">LAS CANGREBURGERS DE MAURI</h1>
+        <p>¿Listo para probar la fórmula secreta? La burger más deseada del fondo del mar, ahora en tu ciudad.</p>
+        <a href="#menu" class="btn-primary" style="display:inline-block; width: auto; padding: 1rem 3rem;">Explorar Menú</a>
+    </header>
+
+    <section id="menu" class="menu-section">
+        <h2>Nuestro Menú de Autor</h2>
+        <div class="menu-grid">
+            <!-- Burger 1 -->
+            <article class="burger-card">
+                <img src="burger-1.png" alt="La Clásica de Mauri" class="burger-img">
+                <div class="burger-content">
+                    <h3>La Clásica de Mauri</h3>
+                    <p>Pan brioche artesano, carne 100% de res madurada, queso cheddar fundido y nuestra salsa secreta del Don Cangrejo.</p>
+                    <div class="burger-footer">
+                        <span class="price">$12.50</span>
+                        <button class="add-btn" onclick="addToCart('La Clásica de Mauri', 12.50)">Añadir al Carrito</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Burger 2 -->
+            <article class="burger-card">
+                <img src="burger-2.png" alt="Cangreburger Explosiva" class="burger-img">
+                <div class="burger-content">
+                    <h3>Cangreburger Explosiva</h3>
+                    <p>Para los valientes: Doble carne, jalapeños al fuego, cebolla caramelizada y un toque de bacon crujiente.</p>
+                    <div class="burger-footer">
+                        <span class="price">$15.90</span>
+                        <button class="add-btn" onclick="addToCart('Cangreburger Explosiva', 15.90)">Añadir al Carrito</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Burger 3 -->
+            <article class="burger-card">
+                <img src="burger-3.png" alt="La Veggie Undersea" class="burger-img">
+                <div class="burger-content">
+                    <h3>La Veggie Undersea</h3>
+                    <p>Medallón de garbanzos y espinaca, aguacate fresco, tomate kumato y un aderezo de yogur y menta.</p>
+                    <div class="burger-footer">
+                        <span class="price">$11.20</span>
+                        <button class="add-btn" onclick="addToCart('La Veggie Undersea', 11.20)">Añadir al Carrito</button>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Cart Drawer -->
+    <div id="cartDrawer" class="cart-drawer">
+        <div class="cart-header">
+            <h3>Tu Pedido</h3>
+            <button class="close-cart" onclick="toggleCart()">×</button>
+        </div>
+        <div id="cartItems" class="cart-items">
+            <!-- Items appear here -->
+        </div>
+        <div class="cart-total">
+            <div style="display: flex; justify-content: space-between; font-weight: 800;">
+                <span>Total</span>
+                <span id="totalPrice">$0</span>
+            </div>
+            <a href="#" class="btn-primary">Finalizar Pedido</a>
+        </div>
+    </div>
+
+    <footer id="contact" style="padding: 4rem 5%; text-align: center; background: #111; color: #555;">
+        <p>&copy; 2024 Las Cangreburgers de Mauri. Todos los derechos reservados.</p>
+        <p style="margin-top: 1rem; color: #999;">Calle de la Fórmula Secreta #123</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;600;800&display=swap');
+
+:root {
+    --primary: #f97316;
+    --primary-dark: #ea580c;
+    --accent: #fbbf24;
+    --bg: #0c0a09;
+    --card-bg: #1c1917;
+    --text: #fafaf9;
+    --text-muted: #d6d3d1;
+    --glass: rgba(28, 25, 23, 0.7);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, .brand {
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 1px;
+}
+
+/* Navbar */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1.25rem 5%;
+    background: var(--glass);
+    backdrop-filter: blur(12px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.brand {
+    font-size: 2rem;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand img {
+    height: 40px;
+    width: auto;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+.cart-icon {
+    position: relative;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 1.5rem;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background: var(--primary);
+    color: white;
+    font-size: 0.75rem;
+    padding: 2px 6px;
+    border-radius: 50%;
+    font-family: 'Outfit', sans-serif;
+}
+
+/* Hero Section */
+.hero {
+    height: 90vh;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('hero-main.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 5%;
+    margin-top: 60px;
+}
+
+.hero h1 {
+    font-size: 5rem;
+    color: var(--accent);
+    text-shadow: 2px 4px 10px rgba(0,0,0,0.5);
+    margin-bottom: 1rem;
+    animation: slideUp 0.8s ease-out;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    max-width: 700px;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Menu Section */
+.menu-section {
+    padding: 5rem 5%;
+}
+
+.menu-section h2 {
+    font-size: 3.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--primary);
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.burger-card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.burger-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.burger-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.burger-content {
+    padding: 1.5rem;
+}
+
+.burger-content h3 {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+    color: var(--accent);
+}
+
+.burger-content p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.burger-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.add-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.add-btn:hover {
+    background: var(--primary-dark);
+}
+
+/* Cart Toggle Drawer */
+.cart-drawer {
+    position: fixed;
+    right: -400px;
+    top: 0;
+    width: 350px;
+    height: 100vh;
+    background: var(--card-bg);
+    box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+    z-index: 2000;
+    padding: 2rem;
+    transition: right 0.4s ease;
+}
+
+.cart-drawer.active {
+    right: 0;
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.close-cart {
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.cart-items {
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.cart-total {
+    margin-top: 2rem;
+    border-top: 2px solid var(--primary);
+    padding-top: 1rem;
+    font-size: 1.25rem;
+}
+
+.btn-primary {
+    display: block;
+    width: 100%;
+    padding: 1.25rem;
+    background: var(--primary);
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: bold;
+    margin-top: 1.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 3.5rem; }
+    .nav-links { display: none; }
+}
